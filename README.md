@@ -17,3 +17,27 @@ Docker runs on Linux or on Windows 10 WSL2 environments. Please refer to both en
 | filbeat.yml | The filebeat configuration file
 | logstash.conf | The logstash configuration file holding the GROK filters to parse Convertigo logs. 
 | ConvertigoCanvas.json |A Convertigo Canvas sample to display various informations in Kabana Canvas.
+
+## Starting and stopping the stacks
+
+To start the ELK stack...
+
+```console
+$ docker-compose up
+```
+
+To start the Convertigo stack...
+
+```console
+$ docker-compose -f docker-compose-c8o.yml up
+```
+
+NOTE: The Convertigo stack must be able to access the ELK Stack with the ip:port configured in the filebeat.yml file to push log information in logstash.
+
+(You can CTRL-C on your terminal window to stop a stack...)
+
+# Accessing the stacks
+
+You can access Convertigo Console at (http://localhost:28080/convertigo)
+
+You can access Kibana Console at (http://localhost:5601)
