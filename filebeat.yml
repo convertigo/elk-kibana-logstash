@@ -1,12 +1,17 @@
+###############################################################################
+# This File must be placed in the same directory than the
+# docker-compose-c8o.yml. 
+# The engine.log file will be read fomr the same workspace volume than
+# the Convertigo stack.
+###############################################################################
 filebeat.inputs:
     - type: log
       enabled: true
       paths:
-        - /workspace/logs/engine.log
+        - /workspace/logs/engine.log 
       multiline.pattern: '^!'
       multiline.negate: true
       multiline.match: after
 
 output.logstash:
-      hosts: ["172.30.161.247:5044"]
-
+      hosts: ["172.30.161.247:5044"] #Configure Here the IP or DNS name of the ELK stack.

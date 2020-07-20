@@ -1,0 +1,50 @@
+###############################################################################
+# This is the docker-compose stack for a complete convertigo stack
+# including the filebeat log reader responsible for sending log to logstash.
+# - Be shure to have the filebeat.yml file in the same dirctory.
+###############################################################################
+version: "2"
+services:
+    convertigo:
+        image: "convertigo:latest"
+        ports:
+         - "28080:28080"
+        links:
+         - couchdb
+         - mysql
+        volumes:
+         - workspace:/workspace
+        environment:
+         - JAVA_OPTS=
+           -Dconvertigo.engine.billing.enabled=true 
+           -Dconvertigo.engine.billing.persistence.jdbc.username=c8oAnalytics
+           -Dconvertigo.engine.billing.persistence.jdbc.password=c8oAnalytics
+           -Dconvertigo.engine.billing.persistence.jdbc.url=jdbc:mysql://mysql:3306/c8oAnalytics
+           -Dconvertigo.engine.fullsync.couch.username=admin
+           -Dconvertigo.engine.fullsync.couch.password=fullsyncpassword
+    couchdb:
+        image: "couchdb:2.3.0"
+        ports:
+         - "28081:5984"
+        environment:
+         - COUCHDB_USER=admin
+         - COUCHDB_PASSWORD=fullsyncpassword
+    mysql:
+        image: "mysql"
+        ports:
+         - "28082:3306"
+        volumes:
+         - analytics:/var/lib/mysql
+        environment:
+         - MYSQL_RANDOM_ROOT_PASSWORD=yes
+         - MYSQL_DATABASE=c8oAnalytics
+         - MYSQL_USER=c8oAnalytics
+         - MYSQL_PASSWORD=c8oAnalytics
+    filebeat:
+        image: "docker.elastic.co/beats/filebeat:7.8.0"
+        volumes:
+            - ${PWD}/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+            - workspace:/workspace
+volumes:
+    workspace: {}
+    analytics: {}

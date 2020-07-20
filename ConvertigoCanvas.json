@@ -1,0 +1,205 @@
+{
+    "css": ".canvasPage {\n\n}",
+    "id": "workpad-39238938-fe78-4604-9830-9d39279aeb85",
+    "name": "Convertigo",
+    "width": 1280,
+    "height": 720,
+    "page": 0,
+    "pages": [{
+        "id": "page-6b6fd40f-eace-46b8-9126-dfde2ac43a51",
+        "style": {
+            "background": "#000000"
+        },
+        "transition": {},
+        "elements": [{
+                "id": "element-49318086-87f6-4d39-a6a4-05dfe6297fab",
+                "position": {
+                    "left": 1074,
+                    "top": -16.75,
+                    "width": 187,
+                    "height": 107.5,
+                    "angle": 0,
+                    "parent": null
+                },
+                "expression": "image dataurl={asset \"asset-b841a9a6-1b04-4bf3-958a-60d0c0d52d5c\"} mode=\"contain\"\n| render"
+            },
+            {
+                "id": "element-270b6f90-5b8b-47d2-863e-d3d4c4965f16",
+                "position": {
+                    "left": 10,
+                    "top": 11,
+                    "width": 129,
+                    "height": 70,
+                    "angle": 0,
+                    "parent": null
+                },
+                "expression": "filters\n| essql query=\"SELECT COUNT(*) EVENTS FROM \\\"fi*\\\"\"\n| math \"EVENTS\"\n| metric \"Events\" \n  metricFont={font family=\"'Open Sans', Helvetica, Arial, sans-serif\" size=36 align=\"center\" color=\"#3f9939\" weight=\"normal\" underline=false italic=false} \n  labelFont={font family=\"'Open Sans', Helvetica, Arial, sans-serif\" size=14 align=\"center\" color=\"#4cbce4\" weight=\"normal\" underline=false italic=false} metricFormat=\"0,0.[000]\"\n| render css=\".canvasRenderEl{\n background-color: black\n}\""
+            },
+            {
+                "id": "element-e933ca98-1425-474b-af74-b72bbfea0390",
+                "position": {
+                    "left": 145,
+                    "top": 12,
+                    "width": 118,
+                    "height": 70,
+                    "angle": 0,
+                    "parent": null
+                },
+                "expression": "filters\n| essql query=\"SELECT COUNT(*) as EVENTS FROM \\\"fi*\\\"\n  WHERE c8o.loglevel = 'ERROR'\"\n| math \"EVENTS\"\n| metric \"Errors\" \n  metricFont={font family=\"'Open Sans', Helvetica, Arial, sans-serif\" size=36 align=\"center\" color=\"#b83c6f\" weight=\"normal\" underline=false italic=false} \n  labelFont={font family=\"'Open Sans', Helvetica, Arial, sans-serif\" size=14 align=\"center\" color=\"#4cbce4\" weight=\"normal\" underline=false italic=false} metricFormat=\"0,0.[000]\"\n| render css=\".canvasRenderEl{\n background-color: black\n}\""
+            },
+            {
+                "id": "element-34cad45e-0ac1-4bc5-a9e6-ad05a54b487b",
+                "position": {
+                    "left": 271,
+                    "top": 11,
+                    "width": 107,
+                    "height": 70,
+                    "angle": 0,
+                    "parent": null
+                },
+                "expression": "filters\n| essql query=\"SELECT COUNT(*) as EVENTS FROM \\\"fi*\\\"\n  WHERE c8o.loglevel = 'DEBUG'\"\n| math \"EVENTS\"\n| metric \"Debug\" \n  metricFont={font family=\"'Open Sans', Helvetica, Arial, sans-serif\" size=36 align=\"center\" color=\"#37988d\" weight=\"normal\" underline=false italic=false} \n  labelFont={font family=\"'Open Sans', Helvetica, Arial, sans-serif\" size=14 align=\"center\" color=\"#4cbce4\" weight=\"normal\" underline=false italic=false} metricFormat=\"0,0.[000]\"\n| render css=\".canvasRenderEl{\n background-color: black\n}\""
+            },
+            {
+                "id": "element-59fe1307-1660-4365-be4f-67f1cdcd5bab",
+                "position": {
+                    "left": 394,
+                    "top": 11,
+                    "width": 116,
+                    "height": 70,
+                    "angle": 0,
+                    "parent": null
+                },
+                "expression": "filters\n| essql query=\"SELECT COUNT(*) as EVENTS FROM \\\"fi*\\\"\n  WHERE c8o.loglevel = 'INFO '\"\n| math \"EVENTS\"\n| metric \"Info\" \n  metricFont={font family=\"'Open Sans', Helvetica, Arial, sans-serif\" size=36 align=\"center\" color=\"#a1ded7\" weight=\"normal\" underline=false italic=false} \n  labelFont={font family=\"'Open Sans', Helvetica, Arial, sans-serif\" size=14 align=\"center\" color=\"#4cbce4\" weight=\"normal\" underline=false italic=false} metricFormat=\"0,0.[000]\"\n| render css=\".canvasRenderEl{\n background-color: black\n}\""
+            },
+            {
+                "id": "element-ea80ec61-4ea8-45b6-a5c5-9439aaa0ae4d",
+                "position": {
+                    "left": 12,
+                    "top": 90.75,
+                    "width": 366,
+                    "height": 288,
+                    "angle": 0,
+                    "parent": null
+                },
+                "expression": "filters\n| essql \n  query=\"SELECT COUNT(c8o.project) as occurences, c8o.project FROM \\\"fi*\\\"\n WHERE c8o.project IS NOT NULL\n GROUP BY  c8o.project\n\"\n| pointseries color=\"c8o.project\" size=\"occurences\"\n| pie hole=52 \n  palette={palette \"#771155\" \"#AA4488\" \"#CC99BB\" \"#114477\" \"#4477AA\" \"#77AADD\" \"#117777\" \"#44AAAA\" \"#77CCCC\" \"#117744\" \"#44AA77\" \"#88CCAA\" \"#777711\" \"#AAAA44\" \"#DDDD77\" \"#774411\" \"#AA7744\" \"#DDAA77\" \"#771122\" \"#AA4455\" \"#DD7788\" gradient=false} labelRadius=88\n| render"
+            },
+            {
+                "id": "element-95f90f13-18be-4cb7-8e15-d84dc0a1be56",
+                "position": {
+                    "left": 344.5,
+                    "top": 81,
+                    "width": 301.5,
+                    "height": 303.25,
+                    "angle": 0,
+                    "parent": null
+                },
+                "expression": "filters\n| essql \n  query=\"SELECT COUNT(c8o.sequence) as occurences, c8o.sequence FROM \\\"fi*\\\"\n  WHERE c8o.sequence IS NOT NULL\n  GROUP BY c8o.sequence\n\"\n| pointseries color=\"c8o.sequence\" size=\"occurences\"\n| pie hole=52 \n  palette={palette \"#01A4A4\" \"#CC6666\" \"#D0D102\" \"#616161\" \"#00A1CB\" \"#32742C\" \"#F18D05\" \"#113F8C\" \"#61AE24\" \"#D70060\" gradient=false} labelRadius=100\n| render"
+            },
+            {
+                "id": "element-eded4c84-521c-4190-821e-765ff55599f8",
+                "position": {
+                    "left": -1,
+                    "top": 496,
+                    "width": 1282,
+                    "height": 221,
+                    "angle": 0,
+                    "parent": null
+                },
+                "expression": "filters\n| essql \n  query=\"SELECT COUNT(\\\"c8o.logdate\\\") as total_errors, \\\"c8o.logdate\\\" FROM \\\"fi*\\\"\n    WHERE c8o.loglevel = 'ERROR'\n    GROUP BY \\\"c8o.logdate\\\"\n    ORDER BY \\\"c8o.logdate\\\" DESC\"\n| pointseries x=\"c8o.logdate\" y=\"total_errors\"\n| plot defaultStyle={seriesStyle points=\"0\" lines=\"3\" bars=\"0\" color=\"#4cbce4\"}\n| render"
+            },
+            {
+                "id": "element-09eb3973-19ef-47bd-aa42-dabccafb23c2",
+                "position": {
+                    "left": -0.5,
+                    "top": 680,
+                    "width": 500,
+                    "height": 50,
+                    "angle": 0,
+                    "parent": null
+                },
+                "expression": "timefilterControl compact=true column=\"@timestamp\"\n| render",
+                "filter": "timefilter from=\"now-15m\" to=now column=@timestamp"
+            },
+            {
+                "id": "element-72133dc0-92a0-4fa9-bae4-450499045e80",
+                "position": {
+                    "left": 157,
+                    "top": 215.25,
+                    "width": 84,
+                    "height": 39,
+                    "angle": 0,
+                    "parent": null
+                },
+                "expression": "filters\n| demodata\n| markdown \"### Projects\"\n| render css=\".canvasRenderEl{\n  color: white\n}\""
+            },
+            {
+                "id": "element-cfa63062-b789-4e6d-a7af-cfe56cf9801f",
+                "position": {
+                    "left": 447,
+                    "top": 215.25,
+                    "width": 105,
+                    "height": 39,
+                    "angle": 0,
+                    "parent": null
+                },
+                "expression": "filters\n| demodata\n| markdown \"### Sequences\"\n| render css=\".canvasRenderEl{\n  color: white\n}\""
+            },
+            {
+                "id": "element-52b881c5-764b-4262-8242-4c0214cdd1d1",
+                "position": {
+                    "left": 679,
+                    "top": 90.75,
+                    "width": 587,
+                    "height": 441.5,
+                    "angle": 0,
+                    "parent": null
+                },
+                "expression": "filters\n| essql query=\"SELECT c8o.loglevel, c8o.message FROM \\\"fi*\\\"\n\"\n| table\n| render css=\".canvasRenderEl{\n color: white\n}\""
+            }
+        ],
+        "groups": []
+    }],
+    "colors": [
+        "#37988d",
+        "#c19628",
+        "#b83c6f",
+        "#3f9939",
+        "#1785b0",
+        "#ca5f35",
+        "#45bdb0",
+        "#f2bc33",
+        "#e74b8b",
+        "#4fbf48",
+        "#1ea6dc",
+        "#fd7643",
+        "#72cec3",
+        "#f5cc5d",
+        "#ec77a8",
+        "#7acf74",
+        "#4cbce4",
+        "#fd986f",
+        "#a1ded7",
+        "#f8dd91",
+        "#f2a4c5",
+        "#a6dfa2",
+        "#86d2ed",
+        "#fdba9f",
+        "#000000",
+        "#444444",
+        "#777777",
+        "#BBBBBB",
+        "#FFFFFF",
+        "rgba(255,255,255,0)"
+    ],
+    "isWriteable": true,
+    "assets": {
+        "asset-b841a9a6-1b04-4bf3-958a-60d0c0d52d5c": {
+            "id": "asset-b841a9a6-1b04-4bf3-958a-60d0c0d52d5c",
+            "@created": "2020-07-19T13:42:22.835Z",
+            "type": "dataurl",
+            "value": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJEAAAAuCAYAAAAoRPuDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkZFODY3QjNERjI5MTFFNkIyMDhFNzMzOEU0MUYyRTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkZFODY3QjRERjI5MTFFNkIyMDhFNzMzOEU0MUYyRTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyRkU4NjdCMURGMjkxMUU2QjIwOEU3MzM4RTQxRjJFOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyRkU4NjdCMkRGMjkxMUU2QjIwOEU3MzM4RTQxRjJFOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsFPl5QAAAbzSURBVHja7Fzhdds4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"
+        }
+    },
+    "@timestamp": "2020-07-20T10:02:33.131Z",
+    "@created": "2020-07-19T13:41:58.670Z"
+}
