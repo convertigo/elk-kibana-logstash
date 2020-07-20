@@ -16,7 +16,7 @@ Docker runs on Linux or on Windows 10 WSL2 environments. Please refer to both en
 | docker-compose-c8o.yml | The docker compose definition for a complete Convertigo stack including Convertigo, CouchDB, MySQL for billing & filebeat to crunch and send logs to logstash.
 | filbeat.yml | The filebeat (Log cruncher process..) configuration file
 | logstash.conf | The logstash (Log parser process...) configuration file holding the GROK filters to parse Convertigo logs. 
-| ConvertigoCanvas.json |A Convertigo Canvas sample to display various informations in Kabana Canvas.
+| ConvertigoCanvas.json |A Convertigo Canvas sample to display various information on Kibana Canvas.
 
 ## Starting and stopping the stacks
 
