@@ -1,0 +1,12 @@
+filebeat.inputs:
+    - type: log
+      enabled: true
+      paths:
+        - /workspace/logs/engine.log
+      multiline.pattern: '^!'
+      multiline.negate: true
+      multiline.match: after
+
+output.logstash:
+      hosts: ["172.30.161.247:5044"]
+
