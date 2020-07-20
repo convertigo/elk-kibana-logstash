@@ -36,7 +36,7 @@ NOTE: The Convertigo stack must be able to access the ELK Stack with the ip:port
 
 (You can CTRL-C on your terminal window to stop a stack...)
 
-# Accessing the stacks
+## Accessing the stacks
 
 You can access Convertigo Console at (http://localhost:28080/convertigo)
 
