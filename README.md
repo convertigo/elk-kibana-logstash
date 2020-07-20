@@ -1,7 +1,7 @@
 # elk-kibana-logstash
 This repository holds sample configurations to integrate Convertigo with Elastic Search / Kibana / Logstash for log analysis and reports.
 
-[image.png](https://postimg.cc/cghH59VW)
+![Screenshot](Capture.PNG)
 
 ## How to install
 This is using docker-compose so you need a docker environment with docker-compose to use this stack.
@@ -17,4 +17,3 @@ Docker runs on Linux or on Windows 10 WSL2 environments. Please refer to both en
 | filbeat.yml | The filebeat configuration file
 | logstash.conf | The logstash configuration file holding the GROK filters to parse Convertigo logs. 
 | ConvertigoCanvas.json |A Convertigo Canvas sample to display various informations in Kabana Canvas.
-
