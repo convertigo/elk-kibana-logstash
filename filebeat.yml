@@ -1,7 +1,7 @@
 ###############################################################################
 # This File must be placed in the same directory than the
 # docker-compose-c8o.yml. 
-# The engine.log file will be read fomr the same workspace volume than
+# The engine.log file will be read from the same workspace volume than
 # the Convertigo stack.
 ###############################################################################
 filebeat.inputs:
